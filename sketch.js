@@ -4,16 +4,11 @@ const Bodies = Matter.Bodies;
 const Constraint = Matter.Constraint;
 var engine, world;
 var canvas, angle, tower, ground, cannon;
-
-
-
-
 function preload() {
   backgroundImg = loadImage("./assets/background.gif");
   towerImage = loadImage("./assets/tower.png");
 
 }
-
 function setup() {
   canvas = createCanvas(1200,600);
   engine = Engine.create();
@@ -23,32 +18,19 @@ function setup() {
   tower = new Tower(150, 350, 160, 310);
   cannon = new Cannon(180, 110, 100, 50, angle);
   cannonBall = new CannonBall(cannon.x, cannon.y);
-
 }
 
 function draw() {
   background(189);
   image(backgroundImg, 0, 0, width, height);
-
-  
-
   Engine.update(engine);
   ground.display();
-  
-
   cannon.display();
   tower.display();
-  cannonBall.display()
- 
+  cannonBall.display() // exibe a bola 
 }
-
-
-
-
-
-
 function keyReleased() {
-  if (keyCode === DOWN_ARROW) {
-    cannonBall.shoot()
+  if (keyCode === DOWN_ARROW) { //se a tela abaixado é a seta pra baixo
+    cannonBall.shoot() // chama a função shoot
   }
 }
